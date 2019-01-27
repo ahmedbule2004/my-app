@@ -1,4 +1,4 @@
-FROM centos:centos7
+FROM node:latest
 MAINTAINER The CentOS Project <cloud-ops@centos.org>
 
 # Perform updates
