@@ -5,7 +5,7 @@ node{
    def startTomcat = "ssh ${tomcatUser}@${tomcatIp} /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/bin/startup.sh"
    def copyWar = "scp -o StrictHostKeyChecking=no target/myweb.war ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/webapps/"
    
-   def copyApache = "scp -o StrictHostKeyChecking=no apache-tomcat-9.0.33.tar.gz ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/webapps/"
+   def copyApache = "scp -o StrictHostKeyChecking=no apache-tomcat-9.0.33.tar.gz ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/"
    
    stage('SCM Checkout'){
         git branch: 'master', 
@@ -21,13 +21,27 @@ node{
       Thanks
       Hari''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'ahmedbule@gmail.com'
   } 
+  
+  
+    stage('Install Tomcat'){
+	   sh 'cp apache-tomcat-9.0.33.tar.gz target/' 
+       	   
+       sshagent(['tomcat-dev']) {
+	 		
+		 	sh "${copyApache}"
+			
+	   } 
+   } 
+  
+  
+  
   stage('Deploy Dev'){
 	   sh 'mv target/myweb*.war target/myweb.war' 
        	   
        sshagent(['tomcat-dev']) {
 	 		sh "${stopTomcat}"
 		 	sh "${copyWar}"
-			sh "${copyApache}"
+			#sh "${copyApache}"
 			sh "${startTomcat}"
 	   } 
    } 
