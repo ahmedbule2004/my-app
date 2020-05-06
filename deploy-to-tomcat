@@ -30,8 +30,8 @@ node{
 	//sh "${copyApache}"
 	
 	//    sh 'chmod 775 /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33.tar.gz' 
-	    
-	    sh 'tar -xzf /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33.tar.gz' 
+	   
+	    sh 'tar -zxvf /opt/webview/deva-web/webapptomcat/filename.tar.gz' 
        //   sh 'cp apache-tomcat-9.0.33.tar.gz target/' 	   
        sshagent(['tomcat-dev']) {
 	 		
