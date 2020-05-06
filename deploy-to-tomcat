@@ -41,7 +41,7 @@ node{
        sshagent(['tomcat-dev']) {
 	 		sh "${stopTomcat}"
 		 	sh "${copyWar}"
-			#sh "${copyApache}"
+			//sh "${copyApache}"
 			sh "${startTomcat}"
 	   } 
    } 
