@@ -27,7 +27,7 @@ node{
   
     stage('Install Tomcat'){
         
-	    sh 'tar -xf apache-tomcat-9.0.33.tar.gz  apache-tomcat-9.0.33' 
+	    sh 'tar -xf /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33.tar.gz  apache-tomcat-9.0.33' 
        //   sh 'cp apache-tomcat-9.0.33.tar.gz target/' 	   
        sshagent(['tomcat-dev']) {
 	 		
