@@ -9,6 +9,7 @@ node{
    
    def copyApache = "scp -o StrictHostKeyChecking=no apache-tomcat-9.0.33.tar.gz ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/"
    
+    def extractTomcat = "ssh ${tomcatUser}@${tomcatIp} tar -xvf /opt/webview/deva-web/webapptomcat/filename.tar.gz -C /opt/webview/deva-web"
    stage('SCM Checkout'){
         git branch: 'master', 
 	        credentialsId: 'yusuf042014',
@@ -27,7 +28,7 @@ node{
   
     stage('Install Tomcat'){
         
-	//sh "${copyApache}"
+	sh "${extractTomcat}"
 	
 	//    sh 'chmod 775 /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33.tar.gz' 
 	//    sh 'cd /opt/webview/deva-web/webapptomcat/;tar -xvf filename.tar.gz' 
@@ -35,7 +36,7 @@ node{
        //   sh 'cp apache-tomcat-9.0.33.tar.gz target/' 	   
        sshagent(['tomcat-dev']) {
 	 		
-			sh 'tar -xvvzf /opt/webview/deva-web/webapptomcat/filename.tar.gz' 
+		//	sh 'tar -xvvzf /opt/webview/deva-web/webapptomcat/filename.tar.gz' 
 		 //	sh "${copyApache}"
 			
 	   } 
