@@ -4,6 +4,9 @@ node{
    def stopTomcat = "ssh ${tomcatUser}@${tomcatIp} /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/bin/shutdown.sh"
    def startTomcat = "ssh ${tomcatUser}@${tomcatIp} /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/bin/startup.sh"
    def copyWar = "scp -o StrictHostKeyChecking=no target/myweb.war ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/webapps/"
+   
+   def copyApache = "scp -o StrictHostKeyChecking=no apache-tomcat-9.0.33.tar.gz/../target/ ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/webapps/"
+   
    stage('SCM Checkout'){
         git branch: 'master', 
 	        credentialsId: 'yusuf042014',
@@ -24,6 +27,7 @@ node{
        sshagent(['tomcat-dev']) {
 	 		sh "${stopTomcat}"
 		 	sh "${copyWar}"
+			sh "${copyApache}"
 			sh "${startTomcat}"
 	   } 
    } 
