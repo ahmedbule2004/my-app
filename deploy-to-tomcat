@@ -27,9 +27,9 @@ node{
   
     stage('Install Tomcat'){
         
-	sh "${copyApache}"
+	//sh "${copyApache}"
 	
-	    sh 'chmod 775 /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33.tar.gz' 
+	//    sh 'chmod 775 /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33.tar.gz' 
 	    
 	    sh 'tar -xf /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33.tar.gz' 
        //   sh 'cp apache-tomcat-9.0.33.tar.gz target/' 	   
