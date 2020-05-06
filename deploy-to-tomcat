@@ -5,8 +5,6 @@ node{
    def startTomcat = "ssh ${tomcatUser}@${tomcatIp} /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/bin/startup.sh"
    def copyWar = "scp -o StrictHostKeyChecking=no target/myweb.war ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/webapps/"
    
-  // def copyApache = "scp -o StrictHostKeyChecking=no apache-tomcat-9.0.33.tar.gz ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/"
-   
    def copyApache = "scp -o StrictHostKeyChecking=no apache-tomcat-9.0.33.tar.gz ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/"
    
     def extractTomcat = "ssh ${tomcatUser}@${tomcatIp} tar -xvf /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33.tar.gz -C /opt/webview/deva-web/webapptomcat/"
@@ -28,29 +26,23 @@ node{
   
     stage('Install Tomcat'){
         
-	// sh "${extractTomcat}"
+	// Add step to create Folder
 	
-	//    sh 'chmod 775 /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33.tar.gz' 
-	//    sh 'cd /opt/webview/deva-web/webapptomcat/;tar -xvf filename.tar.gz' 
-	  //  sh 'tar -zxvf /opt/webview/deva-web/webapptomcat/filename.tar.gz' 
-       //   sh 'cp apache-tomcat-9.0.33.tar.gz target/' 	   
+
        sshagent(['tomcat-dev']) {
 	 		
-		//	sh 'tar -xvvzf /opt/webview/deva-web/webapptomcat/filename.tar.gz' 
 		sh "${copyApache}"
 		sh "${extractTomcat}"
 	   } 
    } 
   
-  
-  
+    
   stage('Deploy Dev'){
 	   sh 'mv target/myweb*.war target/myweb.war' 
        	   
        sshagent(['tomcat-dev']) {
 	 		sh "${stopTomcat}"
 		 	sh "${copyWar}"
-			//sh "${copyApache}"
 			sh "${startTomcat}"
 	   } 
    } 
