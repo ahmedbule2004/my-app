@@ -26,8 +26,9 @@ node{
   
   
     stage('Install Tomcat'){
-	//   sh 'cp apache-tomcat-9.0.33.tar.gz target/' 
-       	   
+        
+	    sh 'tar -xf apache-tomcat-9.0.33.tar.gz' 
+       //   sh 'cp apache-tomcat-9.0.33.tar.gz target/' 	   
        sshagent(['tomcat-dev']) {
 	 		
 		 	sh "${copyApache}"
