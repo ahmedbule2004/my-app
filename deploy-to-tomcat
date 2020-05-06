@@ -1,11 +1,13 @@
 node{
-   def tomcatIp = '192.168.208.152'
+   def tomcatIp = '192.168.208.140'
    def tomcatUser = 'tomcat'
    def stopTomcat = "ssh ${tomcatUser}@${tomcatIp} /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/bin/shutdown.sh"
    def startTomcat = "ssh ${tomcatUser}@${tomcatIp} /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/bin/startup.sh"
    def copyWar = "scp -o StrictHostKeyChecking=no target/myweb.war ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/webapps/"
    
-   def copyApache = "scp -o StrictHostKeyChecking=no apache-tomcat-9.0.33.tar.gz ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/"
+  // def copyApache = "scp -o StrictHostKeyChecking=no apache-tomcat-9.0.33.tar.gz ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/"
+   
+   def copyApache = "scp -o StrictHostKeyChecking=no apache-tomcat-9.0.33.tar.gz ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/"
    
    stage('SCM Checkout'){
         git branch: 'master', 
@@ -24,7 +26,7 @@ node{
   
   
     stage('Install Tomcat'){
-	   sh 'cp apache-tomcat-9.0.33.tar.gz target/' 
+	//   sh 'cp apache-tomcat-9.0.33.tar.gz target/' 
        	   
        sshagent(['tomcat-dev']) {
 	 		
