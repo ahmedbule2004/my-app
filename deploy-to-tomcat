@@ -7,7 +7,7 @@ node{
    
   // def copyApache = "scp -o StrictHostKeyChecking=no apache-tomcat-9.0.33.tar.gz ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/"
    
-   def copyApache = "scp -o StrictHostKeyChecking=no apache-tomcat-9.0.33.tar.gz ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/"
+   def copyApache = "scp -o StrictHostKeyChecking=no apache-tomcat-9.0.33.tar.gz ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/"
    
    stage('SCM Checkout'){
         git branch: 'master', 
