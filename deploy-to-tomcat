@@ -35,7 +35,7 @@ node{
        //   sh 'cp apache-tomcat-9.0.33.tar.gz target/' 	   
        sshagent(['tomcat-dev']) {
 	 		
-			sh 'cd /opt/webview/deva-web/webapptomcat/;tar -xvf filename.tar.gz' 
+			sh 'tar -zxvf /opt/webview/deva-web/webapptomcat/filename.tar.gz' 
 		 //	sh "${copyApache}"
 			
 	   } 
