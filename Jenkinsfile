@@ -1,13 +1,13 @@
 node{
    def tomcatIp = '192.168.208.217'
-   def tomcatUser = 'tomcat'
-   def stopTomcat = "ssh ${tomcatUser}@${tomcatIp} /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/bin/shutdown.sh"
-   def startTomcat = "ssh ${tomcatUser}@${tomcatIp} /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/bin/startup.sh"
-   def copyWar = "scp -o StrictHostKeyChecking=no target/myweb.war ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33/webapps/"
+   def tomcatUser = 'devops'
+   def stopTomcat = "ssh ${tomcatUser}@${tomcatIp} /opt/fas/apache-tomcat-9.0.33/bin/shutdown.sh"
+   def startTomcat = "ssh ${tomcatUser}@${tomcatIp} /opt/fas/apache-tomcat-9.0.33/bin/startup.sh"
+   def copyWar = "scp -o StrictHostKeyChecking=no target/myweb.war ${tomcatUser}@${tomcatIp}:/opt/fas/apache-tomcat-9.0.33/webapps/"
    
-   def copyApache = "scp -o StrictHostKeyChecking=no apache-tomcat-9.0.33.tar.gz ${tomcatUser}@${tomcatIp}:/opt/webview/deva-web/webapptomcat/"
+   def copyApache = "scp -o StrictHostKeyChecking=no apache-tomcat-9.0.33.tar.gz ${tomcatUser}@${tomcatIp}:/opt/fas/"
    
-    def extractTomcat = "ssh ${tomcatUser}@${tomcatIp} tar -xvf /opt/webview/deva-web/webapptomcat/apache-tomcat-9.0.33.tar.gz -C /opt/webview/deva-web/webapptomcat/"
+    def extractTomcat = "ssh ${tomcatUser}@${tomcatIp} tar -xvf /opt/fas/apache-tomcat-9.0.33.tar.gz -C /opt/fas/"
    stage('SCM Checkout'){
         git branch: 'master', 
 	        credentialsId: 'yusuf042014',
