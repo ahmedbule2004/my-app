@@ -10,8 +10,8 @@ node{
     def extractTomcat = "ssh ${tomcatUser}@${tomcatIp} tar -xvf /opt/fas/apache-tomcat-9.0.33.tar.gz -C /opt/fas/"
    stage('SCM Checkout'){
         git branch: 'master', 
-	        credentialsId: 'yusuf042014',
-	        url: 'https://github.com/yusuf042014/myweb'
+	        credentialsId: 'ahmedbule2004',
+	        url: 'https://github.com/ahmedbule2004/myweb'
    }
    stage('Maven Build'){
         def mvnHome = tool name: 'maven3', type: 'maven'
