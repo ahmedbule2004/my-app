@@ -17,11 +17,13 @@ node{
         def mvnHome = tool name: 'maven3', type: 'maven'
 		sh "${mvnHome}/bin/mvn clean package"
    }
-   stage('Email Notification'){
-      mail bcc: '', body: '''Hi Welcome to jenkins email alerts
-      Thanks
-      Hari''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'ahmedbule@gmail.com'
-  } 
+
+	// Ahmed Commened out below STAGE Notificaion After issues
+//   stage('Email Notification'){
+//      mail bcc: '', body: '''Hi Welcome to jenkins email alerts
+//      Thanks
+//      Hari''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'ahmedbule@gmail.com'
+//  } 
   
   
     stage('Install Tomcat'){
