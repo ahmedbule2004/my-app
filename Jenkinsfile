@@ -30,15 +30,17 @@ node{
         
 	// Add step to create Folder
 	
-
+// SSH Jenkins Credential ID private key 'tomcat-dev' we created a Jenkins for deploying to Tomcat production server
+// // Bind the saved Jenkins Credential ID
        sshagent(['tomcat-dev']) {
 	 		
 		sh "${copyApache}"
 		sh "${extractTomcat}"
 	   } 
    } 
-  
-    
+
+//SSH Jenkins Credential ID private key 'tomcat-dev' we created a Jenkins for deploying to Tomcat production server
+// // Bind the saved Jenkins Credential ID
   stage('Deploy Dev'){
 	   sh 'mv target/myweb*.war target/myweb.war' 
        	   
