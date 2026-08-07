@@ -10,7 +10,7 @@ node{
     def extractTomcat = "ssh ${tomcatUser}@${tomcatIp} tar -xvf /opt/fas/apache-tomcat-9.0.33.tar.gz -C /opt/fas/"
 
     //Added in Aug/2026
-   def copyTomcat-usersFile = "scp -o StrictHostKeyChecking=no tomcat-users.xml ${tomcatUser}@${tomcatIp}:/opt/fas/apache-tomcat-9.0.33/conf/"
+   def copyTomcatUsersFile = "scp -o StrictHostKeyChecking=no tomcat-users.xml ${tomcatUser}@${tomcatIp}:/opt/fas/apache-tomcat-9.0.33/conf/"
 	
    stage('SCM Checkout'){
         git branch: 'master', 
@@ -40,7 +40,7 @@ node{
 	 		
 		sh "${copyApache}"
 		sh "${extractTomcat}"
-		sh "${copyTomcat-usersFile}" //Added in Aug/2026
+		sh "${copyTomcatUsersFile}" //Added in Aug/2026
 	   } 
    } 
 
