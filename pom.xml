@@ -45,16 +45,43 @@
   	</distributionManagement>
 	
 <build>
-    <plugins>
+ <!--   <plugins> -->
 
 		<!-- ABule - NEW Code Added ON 9/30/26  BELOW -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.2</version>
-            </plugin>
-
-
+  <pluginManagement>
+   
+       <plugins>
+         <plugin>
+           <artifactId>maven-clean-plugin</artifactId>
+           <version>3.1.0</version>
+         </plugin>
+    
+         <plugin>
+           <artifactId>maven-resources-plugin</artifactId>
+           <version>3.0.2</version>
+         </plugin>
+         <plugin>
+           <artifactId>maven-compiler-plugin</artifactId>
+           <version>3.8.0</version>
+         </plugin>
+    <plugin>
+     <artifactId>maven-surefire-plugin</artifactId>
+     <version>2.22.1</version>
+    </plugin>
+    <plugin>
+     <artifactId>maven-war-plugin</artifactId>
+     <version>3.2.2</version>
+    </plugin>
+    <plugin>`enter code here`
+     <artifactId>maven-install-plugin</artifactId>
+     <version>2.5.2</version>
+    </plugin>
+    <plugin>
+     <artifactId>maven-deploy-plugin</artifactId>
+     <version>2.8.2</version>
+    </plugin>
+   </plugins>
+  </pluginManagement>
   <!-- ABule - OLD Code blocked out ON 9/30/26  BELOW -->
 		<!-- 
         <plugin>
@@ -72,7 +99,7 @@
             <version>2.19</version>
         </plugin>
 		-->
-    </plugins>
+ <!--   </plugins> -->
 </build>
 	
 </project>
