@@ -60,6 +60,14 @@
             <artifactId>maven-surefire-plugin</artifactId>
             <version>2.19</version>
         </plugin>
+
+		<!-- ABule Added below on 9/30/26 - After Build Failure -->
+		 <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <!-- Upgrade to a modern version compatible with Java 17/21 -->
+            <version>3.4.0</version> 
+        </plugin>
     </plugins>
 </build>
 	
