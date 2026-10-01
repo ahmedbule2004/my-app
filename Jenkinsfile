@@ -1,5 +1,5 @@
 node{
-   def tomcatIp = '192.168.32.128'
+   def tomcatIp = '192.168.22.128'
    def tomcatUser = 'devops'
    def stopTomcat = "ssh ${tomcatUser}@${tomcatIp} /opt/fas/apache-tomcat-9.0.33/bin/shutdown.sh"
    def startTomcat = "ssh ${tomcatUser}@${tomcatIp} /opt/fas/apache-tomcat-9.0.33/bin/startup.sh"
