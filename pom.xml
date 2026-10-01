@@ -49,7 +49,8 @@
 		<plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
-            <version>3.3.2</version> <!-- Use 3.3.2 or newer -->
+		    <version>3.4.0</version> <!-- ABULE Updated on 10/1/26  -->
+          <!--  <version>3.3.2</version> --> <!-- Use 3.3.2 or newer -->
         </plugin>
 
 		<!-- ABule - NEW Code Added ON 9/30/26  BELOW -->
