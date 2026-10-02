@@ -23,11 +23,11 @@ node{
    }
 
 	// Ahmed Commened out below STAGE Notificaion After issues
-//   stage('Email Notification'){
-//      mail bcc: '', body: '''Hi Welcome to jenkins email alerts
-//      Thanks
-//      Hari''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'ahmedbule2004@gmail.com'
-//  } 
+   stage('Email Notification'){
+      mail bcc: '', body: '''Hi Welcome to jenkins email alerts
+      Thanks
+      Hari''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'ahmedbule2004@gmail.com'
+  } 
   
   
     stage('Install Tomcat'){
